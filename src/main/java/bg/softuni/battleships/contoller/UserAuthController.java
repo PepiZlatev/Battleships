@@ -1,5 +1,6 @@
 package bg.softuni.battleships.contoller;
 
+import bg.softuni.battleships.models.dto.LoginDTO;
 import bg.softuni.battleships.models.dto.RegistrationDTO;
 import bg.softuni.battleships.service.UserAuthService;
 import org.springframework.stereotype.Controller;
@@ -49,5 +50,53 @@ public class UserAuthController {
 
         return "redirect:/home";
 
+    }
+
+    @ModelAttribute("loginDTO")
+    public LoginDTO initLoginDTO() {
+        return new LoginDTO();
+    }
+
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(@Valid LoginDTO loginDTO, BindingResult bindingResult,
+                        RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("loginDTO", loginDTO);
+            redirectAttributes
+                    .addFlashAttribute(
+                            "org.springframework.validation.BindingResult.loginDTO",
+                    bindingResult);
+
+            return "redirect:/login";
+
+        }
+
+        if (!this.userAuthService.login(loginDTO)) {
+            redirectAttributes.addFlashAttribute("loginDTO", loginDTO);
+            redirectAttributes.addFlashAttribute("badCredentials", true);
+
+            return "redirect:/login";
+        }
+
+        return "redirect:/home";
+    }
+
+
+    @GetMapping("/logout")
+    public String logout() {
+        if (this.userAuthService.isUserLoggedIn()) {
+
+            this.userAuthService.logout();
+
+            return "redirect:/";
+        }
+
+        return "redirect:/home";
     }
 }
