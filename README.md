@@ -4,7 +4,7 @@ A localhost web game where you can you can add a Ship (Battle, Cargo or Patrol) 
 
 This project part of the Spring Fundamentals course at SoftUni. (May 2022)
 
-## :hammer_and_pick: This is how it works:
+## :gear: This is how it works:
 - Anonymous users:
   * can register
   * can login in case of existing account
@@ -13,7 +13,7 @@ This project part of the Spring Fundamentals course at SoftUni. (May 2022)
   * can add ship
   * can fight another user's ship
 
-## Tech Stack:
+## :hammer_and_pick: Tech Stack:
 - Java
 - HTML\CSS
 - Spring Boot
