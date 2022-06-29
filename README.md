@@ -23,7 +23,8 @@ This project part of the Spring Fundamentals course at SoftUni. (May 2022)
 
 The index page is the main page of the web app. If you are not logged in, you have no access to the home and and ship-adding page.
 
-Index
+Index |
+:------:
 ![index](https://github.com/PepiZlatev/Battleships/blob/master/screenshots/index-page.png)
 
 On the left side you can see the register page and on the right the login page.
