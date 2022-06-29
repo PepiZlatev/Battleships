@@ -55,10 +55,16 @@ public class UserAuthService {
 
     public boolean login(LoginDTO loginDTO) {
         Optional<User> user = this.userRepository.findByUsername(loginDTO.getUsername());
-        boolean matchingPassword = this.encoder.matches(loginDTO.getPassword(), user.get().getPassword());
+
+        if (user.isEmpty()) {
+            return false;
+        }
+
+        String password = user.get().getPassword();
+        boolean matchingPassword = this.encoder.matches(loginDTO.getPassword(), password);
 
 
-        if (matchingPassword && user.isPresent()) {
+        if (matchingPassword) {
             this.userSession.login(user.get());
             return true;
         }

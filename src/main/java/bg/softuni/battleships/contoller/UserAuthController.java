@@ -29,6 +29,11 @@ public class UserAuthController {
 
     @GetMapping("/register")
     public String register() {
+
+        if (this.userAuthService.isUserLoggedIn()) {
+            return "redirect:/home";
+        }
+
         return "register";
     }
 
@@ -60,6 +65,11 @@ public class UserAuthController {
 
     @GetMapping("/login")
     public String login() {
+
+        if (this.userAuthService.isUserLoggedIn()) {
+            return "redirect:/home";
+        }
+
         return "login";
     }
 
