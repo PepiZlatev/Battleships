@@ -39,7 +39,7 @@ Once you create an account or login with an existing one, you will be authomatic
 
 Home | Add Ship
 :--------------:| :--------------:
-![home] (https://github.com/PepiZlatev/Battleships/blob/master/screenshots/home.png) | ![add ship] (https://github.com/PepiZlatev/Battleships/blob/master/screenshots/add-ship.png)
+![home](https://github.com/PepiZlatev/Battleships/blob/master/screenshots/home.png) | ![add ship](https://github.com/PepiZlatev/Battleships/blob/master/screenshots/add-ship.png)
 
 The page, where every new registered or logged in user is redirected after the registration/login is the Home page, the image on the left. The right image is the page, where new ship is created.
 
@@ -47,6 +47,6 @@ The page, where every new registered or logged in user is redirected after the r
 
 Home with Ships added | After the fight happened
 :--------------:| :--------------:
-![with ships] (https://github.com/PepiZlatev/Battleships/blob/master/screenshots/with%20ships.png) | ![result] (https://github.com/PepiZlatev/Battleships/blob/master/screenshots/after%20fight.png)
+![preparation](https://github.com/PepiZlatev/Battleships/blob/master/screenshots/with%20ships.png) | ![result](https://github.com/PepiZlatev/Battleships/blob/master/screenshots/after%20fight.png)
 
 After each fight the defender's ship is removed, if its initial health was less than attacker's initial power. In cases where the defender' initial health is more than the attacker's initial power, then the defenre's health is reduced, but the ship is not removed.
