@@ -11,8 +11,9 @@ import bg.softuni.battleships.repository.UserRepository;
 import bg.softuni.battleships.userSession.UserSession;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ShipService {
@@ -68,5 +69,26 @@ public class ShipService {
 
         return true;
 
+    }
+
+    public List<ShipDTO> getShipsOwnedBy(long loggedUserId) {
+        return this.shipRepository.findByUserId(loggedUserId)
+                .stream()
+                .map(ShipDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<ShipDTO> getShipsNotOwnedBy(long loggedUserId) {
+        return this.shipRepository.findByUserIdNot(loggedUserId)
+                .stream()
+                .map(ShipDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<ShipDTO> getAllSorted() {
+        return this.shipRepository.findByOrderByHealthAscNameDescPowerAsc()
+                .stream()
+                .map(ShipDTO::new)
+                .collect(Collectors.toList());
     }
 }

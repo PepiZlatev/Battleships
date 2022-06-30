@@ -50,6 +50,8 @@ public class UserAuthService {
 
         this.userRepository.save(user);
 
+        this.userSession.login(user);
+
         return true;
     }
 
